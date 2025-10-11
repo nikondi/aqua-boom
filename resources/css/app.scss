@@ -154,98 +154,6 @@ body {
   }
 }
 
-.first-section {
-  padding-top: 115px;
-  padding-bottom: 75px;
-  height: 825px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-
-  &__text {
-    flex: 1;
-  }
-
-  .container {
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-}
-
-.top-background {
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  width: 100%;
-  top: 0;
-  height: 1000px;
-  overflow: hidden;
-
-  .container {
-    position: relative;
-  }
-}
-
-.first-section-background {
-  position: absolute;
-  width: 2335px;
-  right: -700px;
-  top: -555px;
-  max-width: unset;
-  z-index: -1;
-  filter: blur(3px);
-  overflow-x: hidden;
-}
-
-.first-heading {
-  font-weight: 900;
-  font-size: 47px;
-  line-height: 110%;
-  letter-spacing: -1%;
-  text-transform: uppercase;
-  background: linear-gradient(170deg, #8BEFD3 20.74%, #377F7E 90.64%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  max-width: 370px;
-  margin-bottom: 60px;
-}
-
-
-.first-image {
-  width: 50%;
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-
-  &__main {
-    width: 100%;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  &__big {
-    position: absolute;
-    top: clamp(0px, 6.67vw, 80px);
-    left: 0;
-    transform: translateX(-50%);
-    width: 13.67vw;
-    max-width: 164px; /* не больше исходного размера */
-  }
-
-  &__small {
-    position: absolute;
-    width: 9.16vw;
-    max-width: 110px;
-    transform: translateX(50%);
-    bottom: 105px;
-    bottom: clamp(0px, 8.75vw, 105px);
-  }
-}
-
 .header-burger {
   width: 32px;
   height: 32px;
@@ -371,5 +279,143 @@ body {
 @media (max-width: 575px) {
   .header-socials {
     display: none;
+  }
+}
+
+
+
+
+.first-section {
+  padding-top: 115px;
+  padding-bottom: 75px;
+  height: 825px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &__text {
+    flex: 1;
+  }
+
+  .container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.top-background {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 1000px;
+  overflow: hidden;
+
+  .container {
+    position: relative;
+  }
+}
+.top-background-image {
+  position: absolute;
+  width: 2335px;
+  right: -700px;
+  top: -555px;
+  max-width: unset;
+  z-index: -1;
+  filter: blur(1000px);
+  overflow-x: hidden;
+}
+
+
+@media (max-width: 991px) {
+  .top-background-image {
+    top: -738px;
+    right: -1443px;
+  }
+}
+
+.first-heading {
+  font-weight: 900;
+  font-size: 47px;
+  line-height: 110%;
+  letter-spacing: -1%;
+  text-transform: uppercase;
+  max-width: 370px;
+  margin-bottom: 60px;
+  span {
+    background: linear-gradient(127.14deg, #8BEFD3 16.74%, #377F7E 84.64%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+
+.first-image {
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+
+  &__main {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__big {
+    position: absolute;
+    top: clamp(0px, 6.67vw, 80px);
+    left: 0;
+    transform: translateX(-50%);
+    width: 13.67vw;
+    max-width: 164px; /* не больше исходного размера */
+  }
+
+  &__small {
+    position: absolute;
+    width: 9.16vw;
+    max-width: 110px;
+    transform: translateX(50%);
+    bottom: 105px;
+    bottom: clamp(0px, 8.75vw, 105px);
+  }
+}
+
+@media (max-width: 991px) {
+  .first-section .container {
+    flex-direction: column-reverse;
+  }
+  .first-section__text {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .first-heading {
+    max-width: unset;
+    margin-bottom: 25px;
+    font-size: 30px;
+  }
+  .first-image {
+    width: 100%;
+    max-width: 287px;
+    &__big {
+      width: 77px;
+      top: 41px;
+    }
+    &__small {
+      bottom: 54px;
+      width: 53px;
+    }
+  }
+  .first-section {
+    height: auto;
+    padding-top: 68px;
+    padding-bottom: 80px;
   }
 }

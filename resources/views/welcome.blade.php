@@ -66,14 +66,14 @@
 
 <div class="top-background">
     <div class="container">
-        <img src="/assets/img/top-background.svg" alt="" class="first-section-background">
+        <img src="/assets/img/top-background.png" alt="" class="top-background-image">
     </div>
 </div>
 
 <section class="first-section">
     <div class="container">
         <div class="first-section__text">
-            <h1 class="first-heading">Идеально чистый авто без разводов за 35 минут</h1>
+            <h1 class="first-heading">Идеально чистый авто <span>без разводов за 35 минут</span></h1>
             <a href="#register" class="btn">Записаться</a>
         </div>
         <div class="first-image" id="first-parallax">
