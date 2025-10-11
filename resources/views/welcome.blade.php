@@ -117,6 +117,92 @@
     </div>
 </section>
 
+<section id="service" class="services-section">
+    <div class="container">
+        <div class="services-heading">
+            <h3>Услуги</h3>
+            <div class="services-heading__buttons">
+                <button class="services-heading__button services-heading__button--prev">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 2L3 18L19 34" stroke="currentColor" stroke-width="4"/>
+                    </svg>
+                </button>
+                <button class="services-heading__button services-heading__button--next">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 2L33 18L17 34" stroke="currentColor" stroke-width="4"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="services-list swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <x-service-card title="Химчистка" price="7500"
+                                    description="Если&nbsp;вы&nbsp;готовите автомобиль к&nbsp;продаже закажите услугу предпродажная химчистка."
+                                    image="/assets/img/service.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Мойка кузова с&nbsp;нанесением воска и&nbsp;гидрофобного полимера" price="2150"
+                                    description="Мойка кузова с&nbsp;нанесением воска и&nbsp;гидрофобного полимера. Быстро, качественно."
+                                    image="/assets/img/service2.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Чистка кузова от металлических вкраплений" price="3000"
+                                    description="Профессиональная чистка по доступной цене. Высокое качество услуг в «Aquaboom»."
+                                    image="/assets/img/service3.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Мойка мотора" price="1500"
+                                    description="Бережная мойка мотора от&nbsp;всех видов загрязнений: пыль, масло, дорожные реагенты."
+                                    image="/assets/img/service4.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Химчистка" price="7500"
+                                    description="Если&nbsp;вы&nbsp;готовите автомобиль к&nbsp;продаже закажите услугу предпродажная химчистка."
+                                    image="/assets/img/service.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Мойка кузова с&nbsp;нанесением воска и&nbsp;гидрофобного полимера" price="2150"
+                                    description="Мойка кузова с&nbsp;нанесением воска и&nbsp;гидрофобного полимера. Быстро, качественно."
+                                    image="/assets/img/service2.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Чистка кузова от металлических вкраплений" price="3000"
+                                    description="Профессиональная чистка по доступной цене. Высокое качество услуг в «Aquaboom»."
+                                    image="/assets/img/service3.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Мойка мотора" price="1500"
+                                    description="Бережная мойка мотора от&nbsp;всех видов загрязнений: пыль, масло, дорожные реагенты."
+                                    image="/assets/img/service4.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Химчистка" price="7500"
+                                    description="Если&nbsp;вы&nbsp;готовите автомобиль к&nbsp;продаже закажите услугу предпродажная химчистка."
+                                    image="/assets/img/service.jpg"
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <x-service-card title="Мойка кузова с&nbsp;нанесением воска и&nbsp;гидрофобного полимера" price="2150"
+                                    description="Мойка кузова с&nbsp;нанесением воска и&nbsp;гидрофобного полимера. Быстро, качественно."
+                                    image="/assets/img/service2.jpg"
+                    />
+                </div>
+                {{-- TODO: добавить затенение по краям--}}
+            </div>
+        </div>
+        <a href="#register" class="btn">Записаться на мойку</a>
+    </div>
+</section>
+
 @vite(['resources/js/app.ts'])
 </body>
 </html>

@@ -1,7 +1,10 @@
 import './bootstrap';
+import 'swiper/css';
 import Parallax from "parallax-js";
 import AOS from "aos";
 import {lockBody, unlockBody} from "@/heplers";
+import Swiper from "swiper";
+import {Navigation} from "swiper/modules";
 
 document.addEventListener('DOMContentLoaded', function () {
   initMenu()
@@ -10,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initFirstParallax();
 
   AOS.init();
+
+  initServicesSlider();
 })
 
 function initMenu() {
@@ -89,5 +94,30 @@ function initFirstParallax() {
       scalarY: 3,
       scalarX: 3
     });
+  })
+}
+
+function initServicesSlider() {
+  const wrapper = document.querySelector('.services-section');
+  if (!wrapper)
+    return;
+
+  const list = wrapper.querySelector('.services-list') as HTMLElement;
+  new Swiper(list, {
+    modules: [Navigation],
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    centeredSlidesBounds: false,
+    spaceBetween: 25,
+    navigation: {
+      prevEl: wrapper.querySelector('.services-heading__button--prev') as HTMLElement,
+      nextEl: wrapper.querySelector('.services-heading__button--next') as HTMLElement,
+    },
+    breakpoints: {
+      992: {
+        centeredSlides: false,
+        slidesPerView: 4,
+      }
+    }
   })
 }

@@ -4,6 +4,7 @@ body {
   background-color: #000000;
   font-family: 'Inter', sans-serif;
   color: #FFFFFF;
+
   &.ohidden {
     overflow-y: scroll;
     position: fixed !important;
@@ -161,6 +162,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
   span {
     position: relative;
     width: 16px;
@@ -179,9 +181,11 @@ body {
       left: 0;
       transform-origin: 0 50%;
     }
+
     &:before {
       bottom: 8px;
     }
+
     &:after {
       top: 8px;
     }
@@ -189,9 +193,11 @@ body {
 
   &.active span {
     background-color: transparent;
+
     &:before {
       transform: rotate(45deg) translateX(3px);
     }
+
     &:after {
       transform: rotate(-45deg) translateX(4px);
     }
@@ -237,11 +243,13 @@ body {
     }
     padding: 0 30px;
     transition: .4s max-height ease-out;
+
     &:before {
       content: '';
       display: block;
       height: 97px;
     }
+
     &:after {
       content: '';
       display: block;
@@ -267,9 +275,11 @@ body {
 
   .header-menu.active {
     visibility: visible;
+
     .header-menu-background {
       opacity: 1;
     }
+
     .header-menu-inner {
       max-height: 100vh;
     }
@@ -281,8 +291,6 @@ body {
     display: none;
   }
 }
-
-
 
 
 .first-section {
@@ -318,6 +326,7 @@ body {
     position: relative;
   }
 }
+
 .top-background-image {
   position: absolute;
   width: 2335px;
@@ -345,6 +354,7 @@ body {
   text-transform: uppercase;
   max-width: 370px;
   margin-bottom: 60px;
+
   span {
     background: linear-gradient(127.14deg, #8BEFD3 16.74%, #377F7E 84.64%);
     -webkit-background-clip: text;
@@ -404,10 +414,12 @@ body {
   .first-image {
     width: 100%;
     max-width: 287px;
+
     &__big {
       width: 77px;
       top: 41px;
     }
+
     &__small {
       bottom: 54px;
       width: 53px;
@@ -417,5 +429,119 @@ body {
     height: auto;
     padding-top: 68px;
     padding-bottom: 80px;
+  }
+}
+
+
+.services-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  &__buttons {
+    display: flex;
+    column-gap: 30px;
+  }
+
+  &__button {
+    display: block;
+    transition: {
+      duration: .2s;
+      property: opacity, color;
+    };
+
+    &:not(.swiper-button-disabled):hover {
+      color: #377F7E;
+    }
+
+    &.swiper-button-disabled {
+      opacity: .7;
+      cursor: default;
+    }
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: -1%;
+    text-transform: uppercase;
+    line-height: 36px;
+  }
+}
+
+.services-section {
+  overflow: hidden;
+  margin-bottom: 120px;
+  .btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+.services-list {
+  margin-bottom: 30px;
+  &.swiper {
+    overflow: visible;
+  }
+}
+
+.service-card {
+  &__img {
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    clip-path: polygon(
+        70px 0,
+        100% 0,
+        100% calc(100% - 40px),
+        calc(100% - 70px) 100%,
+        0 100%,
+        0 40px
+    );
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 110%;
+    letter-spacing: -1%;
+    margin-top: 30px;
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: -1%;
+    margin-top: 20px;
+  }
+
+  &__description {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: -1%;
+    color: #404040;
+    transition: .2s color;
+  }
+
+  &:hover &__description {
+    color: #aaa;
+  }
+}
+
+@media (max-width: 575px) {
+  .service-card {
+    max-width: 175px;
   }
 }
