@@ -21,20 +21,26 @@
 </head>
 <body>
 
-<div id="#top"></div>
+<div id="top"></div>
 <header class="header">
     <div class="container">
         <div class="header-nav">
             <a href="#top">
                 <img src="/assets/img/logo.svg" alt="">
             </a>
-            <ul class="header-menu">
-                <li><a href="#service">Услуги</a></li>
-                <li><a href="#results">До/после</a></li>
-                <li><a href="#advantages">Преимущества</a></li>
-                <li><a href="#gallery">Галерея работ</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-            </ul>
+            <div class="header-menu">
+                <div class="header-menu-inner">
+                    <ul class="header-menu-list">
+                        <li><a href="#service">Услуги</a></li>
+                        <li><a href="#results">До/после</a></li>
+                        <li><a href="#advantages">Преимущества</a></li>
+                        <li><a href="#gallery">Галерея работ</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                    </ul>
+                    <a href="#register" class="btn">Записаться</a>
+                </div>
+                <div class="header-menu-background"></div>
+            </div>
             <div class="header-socials">
                 <a href="#">
                     <svg width="1em" height="1em">
@@ -50,6 +56,9 @@
                     Написать в мессенджер
                 </span>
             </div>
+            <button class="header-burger menu-toggle">
+                <span></span>
+            </button>
         </div>
     </div>
 </header>
