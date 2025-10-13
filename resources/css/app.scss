@@ -159,9 +159,9 @@ body {
   width: 32px;
   height: 32px;
   border: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 
   span {
     position: relative;
@@ -213,6 +213,9 @@ body {
     &.scroll {
       padding-top: 8px;
     }
+  }
+  .header-burger {
+    display: flex;
   }
   .header-menu {
     position: absolute;
@@ -482,6 +485,32 @@ body {
   margin-bottom: 30px;
   &.swiper {
     overflow: visible;
+  }
+}
+.services-list-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  &__space {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    &:before {
+      content: '';
+      height: 1656px;
+      width: clamp(700px, 200%, 200%);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #000000;
+      filter: blur(200px);
+    }
+    &--left:before {
+      right: 0;
+    }
+    &--right:before {
+      left: 0;
+    }
   }
 }
 
