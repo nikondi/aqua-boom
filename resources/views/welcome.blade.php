@@ -120,7 +120,7 @@
 <section id="service" class="services-section">
     <div class="container">
         <div class="services-heading">
-            <h3>Услуги</h3>
+            <h3 class="section-heading">Услуги</h3>
             <div class="services-heading__buttons">
                 <button class="services-heading__button services-heading__button--prev">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -211,6 +211,59 @@
     </div>
     <div class="container">
         <a href="#register" class="btn">Записаться на мойку</a>
+    </div>
+</section>
+
+<section id="results" class="slider-wrapper result-section">
+    <div class="container">
+        <div class="result-heading">
+            <h3 class="section-heading">ДО И ПОСЛЕ</h3>
+            <div class="result-heading__text">
+                Тяните за «ползунок», чтобы&nbsp;увидеть результат
+                <svg width="127" height="145" viewBox="0 0 127 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M76.2946 68.8927L76.5542 68.4654L76.2946 68.8927ZM116.684 27.3319L117.014 26.9555L116.684 27.3319ZM45.9287 141.777C45.8055 142.024 45.906 142.324 46.1532 142.447L50.1806 144.455C50.4278 144.578 50.728 144.478 50.8512 144.23C50.9744 143.983 50.8739 143.683 50.6267 143.56L47.0467 141.776L48.8311 138.196C48.9543 137.948 48.8538 137.648 48.6066 137.525C48.3595 137.402 48.0593 137.502 47.9361 137.749L45.9287 141.777ZM1 23.8271L1.25902 24.2547C33.2557 4.876 56.3805 -0.407713 72.4318 2.06963C88.4394 4.54024 97.4972 14.7443 101.375 26.6108C105.262 38.5076 103.927 52.0425 99.1487 61.0535C96.7607 65.5564 93.5392 68.8824 89.7318 70.3508C85.9452 71.8112 81.4948 71.4667 76.5542 68.4654L76.2946 68.8927L76.035 69.32C81.1918 72.4527 85.9663 72.8748 90.0917 71.2838C94.1962 69.7009 97.5739 66.1575 100.032 61.522C104.946 52.2562 106.291 38.4386 102.325 26.3002C98.349 14.1316 89.0194 3.61792 72.5843 1.08133C56.1928 -1.44853 32.8195 3.97111 0.740978 23.3994L1 23.8271ZM76.2946 68.8927L76.5542 68.4654C69.0645 63.9155 66.187 57.6909 66.4283 51.274C66.671 44.8214 70.0723 38.1059 75.2867 32.6575C80.498 27.2124 87.4761 23.0805 94.7931 21.7606C102.096 20.4434 109.741 21.9233 116.355 27.7082L116.684 27.3319L117.014 26.9555C110.147 20.9503 102.186 19.4109 94.6156 20.7765C87.0596 22.1395 79.8983 26.3927 74.5643 31.9661C69.2335 37.5361 65.6834 44.4725 65.429 51.2364C65.1733 58.0361 68.253 64.5927 76.035 69.32L76.2946 68.8927ZM116.684 27.3319L116.355 27.7082C123.928 34.3313 126.458 43.6628 125.187 54.2728C123.914 64.8962 118.828 76.7616 111.218 88.3343C95.9933 111.486 70.7701 133.307 46.2175 141.526L46.3762 142L46.5349 142.474C71.3476 134.168 96.7364 112.176 112.053 88.8838C119.714 77.235 124.882 65.2218 126.18 54.3918C127.479 43.5486 124.899 33.8522 117.014 26.9555L116.684 27.3319Z"
+                        fill="url(#paint0_linear_22_1603)"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_22_1603" x1="1" y1="55.7686" x2="103.812" y2="124.791"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#8BEFD3"/>
+                            <stop offset="1" stop-color="#377F7E"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <div class="swiper results">
+            <div class="swiper-wrapper">
+                @for($i = 0; $i < 4; $i++)
+                    <div class="swiper-slide">
+                        <div class="result-card">
+                            <div class="result-card__image result-card__image--first">
+                                <img src="/assets/img/results.jpg" alt="">
+                            </div>
+                            <div class="result-card__image result-card__image--second">
+                                <img src="/assets/img/results-1.jpg" alt="">
+                            </div>
+                            <div class="result-card__trigger">
+                                <button type="button" class="result-card__trigger-btn">
+                                    <svg width="78" height="92" viewBox="0 0 78 92" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M39.0002 0.404755L77.1219 23.062V68.3765L39.0002 91.0338L0.878418 68.3765V23.062L39.0002 0.404755Z"
+                                            fill="black"/>
+                                        <path d="M26.8939 34.6425L15.3855 46.151L26.8939 57.6594" stroke="currentColor"
+                                              stroke-width="2.87711"/>
+                                        <path d="M51.3495 34.6425L62.8579 46.151L51.3495 57.6594" stroke="currentColor"
+                                              stroke-width="2.87711"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endfor
+            </div>
+        </div>
     </div>
 </section>
 
