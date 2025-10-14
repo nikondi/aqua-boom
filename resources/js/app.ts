@@ -7,7 +7,7 @@ import Swiper from "swiper";
 import {Navigation} from "swiper/modules";
 
 document.addEventListener('DOMContentLoaded', function () {
-  initMenu()
+  const {closeMenu} = initMenu()
 
   initHeaderScroll();
   initFirstParallax();
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   AOS.init();
 
   initServicesSlider();
-  initScrollTo();
+  initScrollTo(closeMenu);
   initResults();
 })
 
@@ -72,6 +72,8 @@ function initMenu() {
   menu.querySelector('.header-menu-background')?.addEventListener('click', function () {
     close();
   });
+
+  return {openMenu: open, closeMenu: close};
 }
 
 function initHeaderScroll() {
@@ -124,7 +126,7 @@ function initServicesSlider() {
   })
 }
 
-function initScrollTo() {
+function initScrollTo(closeMenu: () => void) {
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       const id = new URL((link as HTMLAnchorElement).href).hash.substring(1);
@@ -133,6 +135,7 @@ function initScrollTo() {
         return;
 
       e.preventDefault();
+      closeMenu();
       const top = elem.getBoundingClientRect().top;
       window.scroll({top: top - 73, behavior: 'smooth'})
     })
