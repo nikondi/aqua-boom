@@ -5,6 +5,7 @@ import AOS from "aos";
 import {lockBody, unlockBody} from "@/heplers";
 import Swiper from "swiper";
 import {Navigation} from "swiper/modules";
+import {CountUp} from "countup.js";
 
 document.addEventListener('DOMContentLoaded', function () {
   const {closeMenu} = initMenu()
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initServicesSlider();
   initScrollTo(closeMenu);
   initResults();
+
+  initCountUp();
 })
 
 function initMenu() {
@@ -41,8 +44,12 @@ function initMenu() {
       close();
   };
 
+  const media = window.matchMedia('(max-width: 991px)');
+
 
   const open = function () {
+    if (!media.matches)
+      return;
     button.classList.add('active');
     lockBody();
     menu.classList.add('active');
@@ -52,6 +59,9 @@ function initMenu() {
     window.addEventListener('keyup', handleKeyUp);
   }
   const close = function () {
+    if (!media.matches)
+      return;
+
     button.classList.remove('active');
 
     unlockBody();
@@ -110,8 +120,6 @@ function initServicesSlider() {
   new Swiper(list, {
     modules: [Navigation],
     slidesPerView: 'auto',
-    centeredSlides: true,
-    centeredSlidesBounds: false,
     spaceBetween: 25,
     navigation: {
       prevEl: wrapper.querySelector('.services-heading__button--prev') as HTMLElement,
@@ -142,10 +150,10 @@ function initScrollTo(closeMenu: () => void) {
   });
 }
 
-
 function isMouseEvent(e: MouseEvent | TouchEvent): e is MouseEvent {
   return e.type === 'mousemove'; // || e.type === 'click'...
 }
+
 
 function initResults() {
   const section = document.querySelector('.result-section');
@@ -156,11 +164,17 @@ function initResults() {
   const swiperWrapper = slider.querySelector('.swiper-wrapper') as HTMLElement;
   const cards: NodeListOf<HTMLElement> = document.querySelectorAll('.result-card');
   const cardsCount = cards.length;
+  const media = window.matchMedia('(max-width: 575px');
 
   const swiper = new Swiper(slider, {
     slidesPerView: 1,
-    spaceBetween: 30,
-    touchStartPreventDefault: false
+    spaceBetween: 10,
+    touchStartPreventDefault: false,
+    breakpoints: {
+      576: {
+        spaceBetween: 30
+      }
+    }
   });
 
   let bounds: DOMRect[] = [];
@@ -201,11 +215,11 @@ function initResults() {
 
       // Интерполируем scale от 1 (в центре) до 0.8 (на краю видимой зоны)
       const scale = distance <= maxDistance
-        ? 1 - (distance / maxDistance) * 0.2
-        : 0.8;
+        ? 1 - (distance / maxDistance) * (media.matches ? 0.6 : 0.2)
+        : media.matches ? 0.4 : 0.8;
 
       // Ограничиваем минимальный scale (на всякий случай)
-      const finalScale = Math.max(0.8, Math.min(1, scale));
+      const finalScale = Math.max(media.matches ? 0.4 : 0.8, Math.min(1, scale));
 
       let origin: string = null;
       if (index === prevIndex && prevIndex >= 0) {
@@ -219,6 +233,8 @@ function initResults() {
       card.style.transformOrigin = origin;
     });
   };
+  handleTranslate(0);
+
   let moving = false;
   let animRef: number = null;
 
@@ -309,5 +325,35 @@ function initResults() {
 
     trigger_btn.addEventListener('mousedown', subscribe);
     trigger_btn.addEventListener('touchstart', subscribe);
+  });
+}
+
+function initCountUp() {
+  const counts = document.querySelectorAll<HTMLElement>('.countup');
+  counts.forEach(function (item) {
+    const demo = new CountUp(item, parseInt(item.dataset.to), {
+      startVal: item.dataset.from ? parseInt(item.dataset.from) : 0,
+      useGrouping: true,
+      separator: ' '
+    });
+
+    const checkPosition = () => {
+      const rect = item.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top >= 20 && rect.bottom <= windowHeight - 20) {
+        // Выполняем нужную функцию
+        if (!demo.error) {
+          demo.start();
+        } else {
+          console.error(demo.error);
+        }
+
+        window.removeEventListener('scroll', checkPosition)
+      }
+    }
+
+    window.addEventListener('scroll', checkPosition);
+    checkPosition();
   });
 }

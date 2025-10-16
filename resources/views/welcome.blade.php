@@ -267,6 +267,49 @@
     </div>
 </section>
 
+<section class="advantages-section" id="advantages">
+    <div class="container">
+        <div class="advantages-list">
+            <div class="advantages-col">
+                <div class="advantages-card">
+                    <div class="advantages-card__count">
+                        <span class="countup" data-to="5">5</span>+ ЛЕТ
+                    </div>
+                    <div class="advantages-card__description">
+                        В сфере автомойки <br />и детейлинга
+                    </div>
+                </div>
+                <div class="advantages-card">
+                    <div class="advantages-card__count">
+                        <span class="countup" data-to="10000">10 000</span>
+                    </div>
+                    <div class="advantages-card__description">
+                        Машин <br />обслужено
+                    </div>
+                </div>
+            </div>
+            <div class="advantages-col">
+                <div class="advantages-card">
+                    <div class="advantages-card__count">
+                        <span class="countup" data-to="1000">1000</span>
+                    </div>
+                    <div class="advantages-card__description">
+                        Довольных клиентов <br />в 3 точках Липецка
+                    </div>
+                </div>
+                <div class="advantages-card">
+                    <div class="advantages-card__count">
+                        <span class="countup" data-from="99" data-to="30">30</span> МИН
+                    </div>
+                    <div class="advantages-card__description">
+                        Среднее время на обслуживание <br />одного автомобиля
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 @vite(['resources/js/app.ts'])
 </body>
 </html>
