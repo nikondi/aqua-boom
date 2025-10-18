@@ -1,21 +1,23 @@
+<?php
+/**
+ * @var \App\Models\Service $service
+ */
+?>
 @props([
-    'price',
-    'title',
-    'description',
-    'image'
+    'service',
 ])
 
 <div class="service-card">
     <div class="service-card__img">
-        <img src="{{ $image }}" alt="">
+        <img src="{{ $service->getImageUrl() }}" alt="">
     </div>
     <div class="service-card__price">
-        {{ number_format($price, 0, '.', ' ') }} ₽
+        {{ number_format($service->price, 0, '.', ' ') }} ₽
     </div>
     <div class="service-card__title">
-        {!! $title !!}
+        {!! $service->name !!}
     </div>
     <div class="service-card__description">
-        {!! $description !!}
+        {!! $service->description !!}
     </div>
 </div>
