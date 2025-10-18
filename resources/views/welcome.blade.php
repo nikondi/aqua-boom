@@ -177,14 +177,14 @@
         </div>
         <div class="swiper results">
             <div class="swiper-wrapper">
-                @for($i = 0; $i < 4; $i++)
+                @foreach($result as $item)
                     <div class="swiper-slide">
                         <div class="result-card">
                             <div class="result-card__image result-card__image--first">
-                                <img src="/assets/img/results.jpg" alt="">
+                                <img src="{{ $item->getBeforeUrl() }}" alt="">
                             </div>
                             <div class="result-card__image result-card__image--second">
-                                <img src="/assets/img/results-1.jpg" alt="">
+                                <img src="{{ $item->getAfterUrl() }}" alt="">
                             </div>
                             <div class="result-card__trigger">
                                 <button type="button" class="result-card__trigger-btn">
@@ -202,7 +202,7 @@
                             </div>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>

@@ -25,6 +25,10 @@ class ServiceResource extends ModelResource
 
     protected string $title = 'Услуги';
 
+    protected string $column = 'name';
+
+    protected bool $detailInModal = true;
+
     /**
      * @return list<FieldContract>
      */
@@ -32,6 +36,9 @@ class ServiceResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
+            Image::make('Фотография', 'image'),
+            Text::make('Название', 'name'),
+            Number::make('Цена, р.', 'price'),
         ];
     }
 
@@ -48,11 +55,12 @@ class ServiceResource extends ModelResource
                         ->required(),
                     Number::make('Цена, р.', 'price')
                         ->required(),
-                    Image::make('Фотография', 'image')
-                        ->dir('service')
-                        ->allowedExtensions(['png', 'jpeg', 'webp', 'jpg'])
-                        ->required(),
                 ]),
+
+                Image::make('Фотография', 'image')
+                    ->dir('service')
+                    ->allowedExtensions(['png', 'jpeg', 'webp', 'jpg'])
+                    ->required(),
 
                 Textarea::make('Описание', 'description')
                     ->required(),
@@ -67,6 +75,14 @@ class ServiceResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('Название', 'name'),
+            Number::make('Цена, р.', 'price'),
+
+            Image::make('Фотография', 'image')
+                ->dir('service')
+                ->allowedExtensions(['png', 'jpeg', 'webp', 'jpg']),
+
+            Textarea::make('Описание', 'description'),
         ];
     }
 

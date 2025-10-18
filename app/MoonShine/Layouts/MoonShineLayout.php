@@ -32,6 +32,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     When};
 use App\MoonShine\Resources\ServiceResource;
 use MoonShine\MenuManager\MenuItem;
+use App\MoonShine\Resources\ResultResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -46,6 +47,7 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuItem::make('Услуги', ServiceResource::class),
+            MenuItem::make('До / после', ResultResource::class),
             ...parent::menu(),
         ];
     }
