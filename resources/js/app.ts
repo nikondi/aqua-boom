@@ -1,5 +1,6 @@
 import './bootstrap';
 import 'swiper/css';
+import 'aos/dist/aos.css';
 import Parallax from "parallax-js";
 import AOS from "aos";
 import {lockBody, unlockBody} from "@/heplers";
@@ -13,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
   initHeaderScroll();
   initFirstParallax();
 
-  AOS.init();
+  AOS.init({
+    duration: 300
+  });
 
   initServicesSlider();
   initScrollTo(closeMenu);
@@ -126,6 +129,14 @@ function initServicesSlider() {
       nextEl: wrapper.querySelector('.services-heading__button--next') as HTMLElement,
     },
     breakpoints: {
+      576: {
+        centeredSlides: false,
+        slidesPerView: 2,
+      },
+      768: {
+        centeredSlides: false,
+        slidesPerView: 3,
+      },
       992: {
         centeredSlides: false,
         slidesPerView: 4,
