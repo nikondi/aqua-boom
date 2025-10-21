@@ -14,6 +14,7 @@ use App\MoonShine\Resources\MoonShineUserRoleResource;
 use App\MoonShine\Resources\ServiceResource;
 use App\MoonShine\Resources\ResultResource;
 use App\MoonShine\Resources\GalleryImageResource;
+use App\MoonShine\Resources\ReviewResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 ServiceResource::class,
                 ResultResource::class,
                 GalleryImageResource::class,
+                ReviewResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

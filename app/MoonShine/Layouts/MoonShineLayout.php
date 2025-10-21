@@ -34,6 +34,7 @@ use App\MoonShine\Resources\ServiceResource;
 use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\ResultResource;
 use App\MoonShine\Resources\GalleryImageResource;
+use App\MoonShine\Resources\ReviewResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -50,6 +51,7 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make('Услуги', ServiceResource::class),
             MenuItem::make('До / после', ResultResource::class),
             MenuItem::make('Галерея', GalleryImageResource::class),
+            MenuItem::make('Отзывы', ReviewResource::class),
             ...parent::menu(),
         ];
     }

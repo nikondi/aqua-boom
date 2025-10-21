@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   initCountUp();
 
-  Fancybox.bind('[data-fancybox]')
+  Fancybox.bind('[data-fancybox]');
+
+  initReviewsSlider();
 })
 
 function initMenu() {
@@ -129,8 +131,8 @@ function initServicesSlider() {
     slidesPerView: 'auto',
     spaceBetween: 25,
     navigation: {
-      prevEl: wrapper.querySelector('.services-heading__button--prev') as HTMLElement,
-      nextEl: wrapper.querySelector('.services-heading__button--next') as HTMLElement,
+      prevEl: wrapper.querySelector('.heading__button--prev') as HTMLElement,
+      nextEl: wrapper.querySelector('.heading__button--next') as HTMLElement,
     },
     breakpoints: {
       576: {
@@ -168,7 +170,6 @@ function initScrollTo(closeMenu: () => void) {
 function isMouseEvent(e: MouseEvent | TouchEvent): e is MouseEvent {
   return e.type === 'mousemove'; // || e.type === 'click'...
 }
-
 
 function initResults() {
   const section = document.querySelector('.result-section');
@@ -343,6 +344,7 @@ function initResults() {
   });
 }
 
+
 function initCountUp() {
   const counts = document.querySelectorAll<HTMLElement>('.countup');
   counts.forEach(function (item) {
@@ -357,7 +359,6 @@ function initCountUp() {
       const windowHeight = window.innerHeight;
 
       if (rect.top >= 20 && rect.bottom <= windowHeight - 20) {
-        // Выполняем нужную функцию
         if (!demo.error) {
           demo.start();
         } else {
@@ -371,4 +372,26 @@ function initCountUp() {
     window.addEventListener('scroll', checkPosition);
     checkPosition();
   });
+}
+
+function initReviewsSlider() {
+  const wrapper = document.getElementById('reviews');
+  const slider = wrapper.querySelector<HTMLElement>('.reviews-slider');
+  if (!slider)
+    return;
+
+  new Swiper(slider, {
+    slidesPerView: 'auto',
+    spaceBetween: 25,
+    modules: [Navigation],
+    navigation: {
+      prevEl: wrapper.querySelector<HTMLElement>('.heading__button--prev'),
+      nextEl: wrapper.querySelector<HTMLElement>('.heading__button--next'),
+    },
+    breakpoints: {
+      768: {
+        spaceBetween: 0
+      }
+    }
+  })
 }

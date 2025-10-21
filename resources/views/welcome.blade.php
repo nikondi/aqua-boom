@@ -121,14 +121,14 @@
     <div class="container">
         <div class="services-heading">
             <h3 class="section-heading">Услуги</h3>
-            <div class="services-heading__buttons">
-                <button class="services-heading__button services-heading__button--prev">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="heading__buttons">
+                <button class="heading__button heading__button--prev">
+                    <svg width="36" height="36" viewBox="0 0 36 36">
                         <path d="M19 2L3 18L19 34" stroke="currentColor" stroke-width="4"/>
                     </svg>
                 </button>
-                <button class="services-heading__button services-heading__button--next">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button class="heading__button heading__button--next">
+                    <svg width="36" height="36" viewBox="0 0 36 36">
                         <path d="M17 2L33 18L17 34" stroke="currentColor" stroke-width="4"/>
                     </svg>
                 </button>
@@ -303,6 +303,49 @@
         </div>
     </section>
 </div>
+
+<section id="reviews" class="slider-wrapper">
+    <div class="container">
+        <div class="reviews-heading">
+            <h3 class="section-heading">Отзывы</h3>
+            <div class="reviews-heading__desktop">
+                <a href="#">
+                    <img src="/assets/img/2gis.png" alt="">
+                    <span>Перейти к отзывам</span>
+                </a>
+            </div>
+            <div class="reviews-heading__mobile">
+                <div class="heading__buttons">
+                    <button class="heading__button heading__button--prev">
+                        <svg width="36" height="36" viewBox="0 0 36 36">
+                            <path d="M19 2L3 18L19 34" stroke="currentColor" stroke-width="4"/>
+                        </svg>
+                    </button>
+                    <button class="heading__button heading__button--next">
+                        <svg width="36" height="36" viewBox="0 0 36 36">
+                            <path d="M17 2L33 18L17 34" stroke="currentColor" stroke-width="4"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reviews-slider-wrapper">
+        <div class="reviews-space reviews-space--left"></div>
+        <div class="container">
+            <div class="reviews-slider swiper">
+                <div class="swiper-wrapper">
+                    @foreach($reviews as $review)
+                        <div class="swiper-slide">
+                            <x-review-card :review="$review"/>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="reviews-space reviews-space--right"></div>
+    </div>
+</section>
 
 @vite(['resources/js/app.ts'])
 </body>
