@@ -208,81 +208,101 @@
     </div>
 </section>
 
-<section class="advantages-section" id="advantages">
-    <div class="container">
-        <div class="advantages-list">
-            <div class="advantages-col">
-                <div class="advantages-card">
-                    <div class="advantages-card__count">
-                        <span class="countup" data-to="5">5</span>+ ЛЕТ
+<div class="map-blur">
+    <div class="map-blur-inner">
+        <img src="/assets/img/map-blur.png" alt="" class="map-blur-img">
+    </div>
+    <section class="advantages-section" id="advantages">
+        <div class="container">
+            <div class="advantages-list">
+                <div class="advantages-col">
+                    <div class="advantages-card">
+                        <div class="advantages-card__count">
+                            <span class="countup" data-to="5">5</span>+ ЛЕТ
+                        </div>
+                        <div class="advantages-card__description">
+                            В сфере автомойки <br/>и детейлинга
+                        </div>
                     </div>
-                    <div class="advantages-card__description">
-                        В сфере автомойки <br/>и детейлинга
-                    </div>
-                </div>
-                <div class="advantages-card">
-                    <div class="advantages-card__count">
-                        <span class="countup" data-to="10000">10 000</span>
-                    </div>
-                    <div class="advantages-card__description">
-                        Машин <br/>обслужено
-                    </div>
-                </div>
-            </div>
-            <div class="advantages-col">
-                <div class="advantages-card">
-                    <div class="advantages-card__count">
-                        <span class="countup" data-to="1000">1000</span>
-                    </div>
-                    <div class="advantages-card__description">
-                        Довольных клиентов <br/>в 3 точках Липецка
+                    <div class="advantages-card">
+                        <div class="advantages-card__count">
+                            <span class="countup" data-to="10000">10 000</span>
+                        </div>
+                        <div class="advantages-card__description">
+                            Машин <br/>обслужено
+                        </div>
                     </div>
                 </div>
-                <div class="advantages-card">
-                    <div class="advantages-card__count">
-                        <span class="countup" data-from="99" data-to="30">30</span> МИН
+                <div class="advantages-col">
+                    <div class="advantages-card">
+                        <div class="advantages-card__count">
+                            <span class="countup" data-to="1000">1000</span>
+                        </div>
+                        <div class="advantages-card__description">
+                            Довольных клиентов <br/>в 3 точках Липецка
+                        </div>
                     </div>
-                    <div class="advantages-card__description">
-                        Среднее время на обслуживание <br/>одного автомобиля
+                    <div class="advantages-card">
+                        <div class="advantages-card__count">
+                            <span class="countup" data-from="99" data-to="30">30</span> МИН
+                        </div>
+                        <div class="advantages-card__description">
+                            Среднее время на обслуживание <br/>одного автомобиля
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-<section>
-    <div class="container">
-        <h3 class="section-heading">3 точки в липецке</h3>
-        <div class="map">
-            <div class="map-layout">
-                <img src="/assets/img/map.svg" alt="" class="map-img">
-                <div class="map-dots">
+    <section>
+        <div class="container">
+            <h3 class="section-heading">3 точки в липецке</h3>
+            <div class="map">
+                <div class="map-layout">
+                    <img src="/assets/img/map.svg" alt="" class="map-img">
+                    <div class="map-dots">
+                        @foreach($dots as $dot)
+                            <a href="{{ $dot['link'] }}"
+                               class="map-dot{{ ($dot['right'] ?? false)?' map-dot--right':'' }}"
+                               style="{{ $dot['position'] }}">
+                                {!! $dot['text'] !!}
+                            </a>
+                        @endforeach
+                    </div>
+                    <div class="map-dots-mobile">
+                        @foreach($dots as $dot)
+                            <a href="{{ $dot['link'] }}"
+                               class="map-dot{{ ($dot['right'] ?? false)?' map-dot--right':'' }}"
+                               style="{{ $dot['position'] }}"></a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="map-list">
                     @foreach($dots as $dot)
-                        <a href="{{ $dot['link'] }}" class="map-dot{{ ($dot['right'] ?? false)?' map-dot--right':'' }}"
-                             style="{{ $dot['position'] }}">
-                            {!! $dot['text'] !!}
+                        <a href="{{ $dot['link'] }}">
+                            {{ $dot['text'] }}
                         </a>
                     @endforeach
                 </div>
-                <div class="map-dots-mobile">
-                    @foreach($dots as $dot)
-                        <a href="{{ $dot['link'] }}" class="map-dot{{ ($dot['right'] ?? false)?' map-dot--right':'' }}"
-                             style="{{ $dot['position'] }}"></a>
-                    @endforeach
-                </div>
             </div>
-            <div class="map-list">
-                @foreach($dots as $dot)
-                    <a href="{{ $dot['link'] }}">
-                        {{ $dot['text'] }}
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h3 class="section-heading">Галерея работ</h3>
+            <div class="gallery">
+                @foreach($gallery as $image)
+                    <a href="{{ $image->getUrl() }}" data-fancybox="gallery">
+                        <img src="{{ $image->getUrl() }}" alt="">
                     </a>
                 @endforeach
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
 @vite(['resources/js/app.ts'])
 </body>

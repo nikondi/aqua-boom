@@ -956,11 +956,14 @@ body {
 
 .map-dots-mobile {
   display: none;
+
   .map-dot {
     width: auto;
+
     &:before {
       margin: 0;
     }
+
     &:after {
       display: none;
     }
@@ -973,6 +976,7 @@ body {
   flex-wrap: wrap;
   position: absolute;
   color: #fff;
+
   &:before {
     content: '';
     display: block;
@@ -986,6 +990,7 @@ body {
       position: center center;
     };
   }
+
   &:after {
     content: '';
     display: block;
@@ -997,15 +1002,18 @@ body {
 
   &--right {
     justify-content: flex-end;
+
     &:after {
       background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
     }
   }
 }
+
 .map-list {
   display: none;
   width: 100%;
   margin-top: 10px;
+
   &:before {
     content: '';
     display: block;
@@ -1013,6 +1021,7 @@ body {
     width: 100%;
     background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
   }
+
   a {
     display: flex;
     flex-wrap: wrap;
@@ -1020,9 +1029,11 @@ body {
     position: relative;
     padding: 16px 0;
     transition: .2s color;
+
     &:hover {
       color: #377F7E;
     }
+
     &:after {
       content: '';
       position: absolute;
@@ -1033,6 +1044,7 @@ body {
       width: 100%;
       background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
     }
+
     &:before {
       content: '';
       position: absolute;
@@ -1047,6 +1059,23 @@ body {
     }
   }
 }
+
+.map-blur {
+  overflow: hidden;
+}
+
+.map-blur-inner {
+  position: relative;
+}
+
+.map-blur-img {
+  position: absolute;
+  top: -300px;
+  left: -10px;
+  filter: blur(10px);
+  max-width: unset;
+}
+
 @media (max-width: 767px) {
   .map-layout {
     width: auto;
@@ -1064,5 +1093,142 @@ body {
     padding-top: 35px;
     padding-bottom: 0;
     margin-bottom: 40px;
+  }
+}
+
+#gallery {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.gallery {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 280px);
+  margin-top: 40px;
+
+  a {
+    display: block;
+
+    &:nth-child(1) {
+      grid-area: 1 / 1 / 3 / 3;
+    }
+
+    &:nth-child(2) {
+      grid-area: 1 / 3 / 2 / 4;
+    }
+
+    &:nth-child(3) {
+      grid-area: 1 / 4 / 2 / 5;
+    }
+
+    &:nth-child(4) {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+
+    &:nth-child(5) {
+      grid-area: 2 / 4 / 3 / 5;
+    }
+
+    &:nth-child(6) {
+      grid-area: 3 / 1 / 5 / 5;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      img {
+        clip-path: polygon(
+            70px 0,
+            100% 0,
+            100% calc(100% - 41px),
+            calc(100% - 70px) 100%,
+            0 100%,
+            0 41px
+        );
+      }
+    }
+
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    clip-path: polygon(
+        110px 0,
+        100% 0,
+        100% calc(100% - 63px),
+        calc(100% - 110px) 100%,
+        0 100%,
+        0 63px
+    );
+  }
+}
+
+
+@media (max-width: 767px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 168px);
+    gap: 15px;
+
+    a {
+      &:nth-child(1) {
+        grid-area: 1 / 1 / 3 / 3;
+      }
+
+      &:nth-child(2) {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+
+      &:nth-child(3) {
+        grid-area: 3 / 2 / 4 / 3;
+      }
+
+      &:nth-child(4) {
+        grid-area: 4 / 1 / 5 / 2;
+      }
+
+      &:nth-child(5) {
+        grid-area: 4 / 2 / 5 / 3;
+      }
+
+      &:nth-child(6) {
+        grid-area: 5 / 1 / 7 / 3;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        img {
+          clip-path: polygon(
+              43px 0,
+              100% 0,
+              100% calc(100% - 25px),
+              calc(100% - 43px) 100%,
+              0 100%,
+              0 25px
+          );
+        }
+      }
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      clip-path: polygon(
+          70px 0,
+          100% 0,
+          100% calc(100% - 40px),
+          calc(100% - 70px) 100%,
+          0 100%,
+          0 40px
+      );
+    }
   }
 }

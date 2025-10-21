@@ -1,12 +1,14 @@
 import './bootstrap';
 import 'swiper/css';
 import 'aos/dist/aos.css';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import Parallax from "parallax-js";
 import AOS from "aos";
 import {lockBody, unlockBody} from "@/heplers";
 import Swiper from "swiper";
 import {Navigation} from "swiper/modules";
 import {CountUp} from "countup.js";
+import {Fancybox} from "@fancyapps/ui";
 
 document.addEventListener('DOMContentLoaded', function () {
   const {closeMenu} = initMenu()
@@ -23,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initResults();
 
   initCountUp();
+
+  Fancybox.bind('[data-fancybox]')
 })
 
 function initMenu() {
