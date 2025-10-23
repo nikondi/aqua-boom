@@ -70,6 +70,12 @@ class RequestResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('Имя', 'name'),
+            Phone::make('Номер телефона', 'phone'),
+            Date::make('Создана', 'created_at')->format('d.m.Y H:i:s')
+                ->sortable(),
+            Switcher::make('Прочитана', 'status')
+                ->updateOnPreview()
         ];
     }
 
