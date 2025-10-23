@@ -10,6 +10,7 @@ import {Navigation} from "swiper/modules";
 import {CountUp} from "countup.js";
 import {Fancybox} from "@fancyapps/ui";
 import IMask from 'imask';
+import axios from "axios";
 
 document.addEventListener('DOMContentLoaded', function () {
   const {closeMenu} = initMenu()
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   });
 
+  initRegisterForm();
   initMap();
 })
 
@@ -393,7 +395,6 @@ function initCountUp() {
   });
 }
 
-
 function initReviewsSlider() {
   const wrapper = document.getElementById('reviews');
   const slider = wrapper.querySelector<HTMLElement>('.reviews-slider');
@@ -413,8 +414,9 @@ function initReviewsSlider() {
         spaceBetween: 0
       }
     }
-  })
+  });
 }
+
 
 function initMap() {
   ymaps.ready(function () {
@@ -422,5 +424,47 @@ function initMap() {
       center: [55.76, 37.64],
       zoom: 10
     });
+  });
+}
+
+let timeout: number = null;
+
+function initRegisterForm() {
+  const form = document.querySelector('.register-form');
+  if (!form)
+    return;
+
+  const hideNotifications = () => {
+    form.querySelectorAll('.form-success, .form-error').forEach((item) => {
+      item.classList.remove('active')
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const data = {
+      name: form.querySelector<HTMLInputElement>('input[name="name"]').value,
+      phone: form.querySelector<HTMLInputElement>('input[name="phone"]').value,
+    };
+
+    if(data.phone.replace(/[^0-9]/g, '').length != 11)
+      return;
+
+    clearTimeout(timeout);
+    hideNotifications();
+
+    axios.post('/form_send', data)
+      .then(() => {
+        form.querySelector('.form-success').classList.add('active');
+        form.querySelector<HTMLInputElement>('input[name="name"]').value = ''
+        form.querySelector<HTMLInputElement>('input[name="phone"]').value = ''
+      })
+      .catch(() => {
+        form.querySelector('.form-error').classList.add('active');
+      })
+      .finally(() => {
+        timeout = setTimeout(hideNotifications, 6000)
+      });
   });
 }

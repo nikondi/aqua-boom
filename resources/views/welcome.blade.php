@@ -392,18 +392,25 @@
             <form action="" class="register-form">
                 <h3 class="section-heading"><span>Качественная мойка</span><br /> по доступной цене</h3>
                 <label class="form-input">
+                    <input type="text" name="name" required>
                     <span>Имя</span>
-                    <input type="text" name="name">
                 </label>
                 <label class="form-input">
+                    <input type="tel" name="phone" required>
                     <span>Номер</span>
-                    <input type="tel" name="phone">
                 </label>
+
+                <div class="form-success">
+                    Заявка отправлена
+                </div>
+                <div class="form-error">
+                    Произошла ошибка. Проверьте введенные данные или попробуйте позже
+                </div>
 
                 <button class="btn">Записаться на мойку</button>
 
                 <label class="form-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     <span class="form-checkbox__check">
                         <svg width="1em" height="1em" x="0" y="0" viewBox="0 0 511.985 511.985"><path d="M500.088 83.681c-15.841-15.862-41.564-15.852-57.426 0L184.205 342.148 69.332 227.276c-15.862-15.862-41.574-15.862-57.436 0-15.862 15.862-15.862 41.574 0 57.436l143.585 143.585c7.926 7.926 18.319 11.899 28.713 11.899 10.394 0 20.797-3.963 28.723-11.899l287.171-287.181c15.862-15.851 15.862-41.574 0-57.435z" fill="currentColor"></path></svg>
                     </span>

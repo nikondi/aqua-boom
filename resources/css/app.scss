@@ -1505,11 +1505,16 @@ body {
     background-color: #000000;
     left: 16px;
     top: -11px;
+    transition: .2s color;
 
     font-weight: 400;
     font-size: 20px;
     line-height: 100%;
     letter-spacing: -1%;
+  }
+
+  input:focus + span {
+    color: #dddddd;
   }
 }
 
@@ -1594,6 +1599,25 @@ body {
   }
 }
 
+.form-error,
+.form-success {
+  border: 1px solid currentColor;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+
+  &:not(.active) {
+    display: none;
+  }
+}
+
+.form-error {
+  color: #ff4b4b;
+}
+
+.form-success {
+  color: #6fff6f;
+}
+
 @media (max-width: 991px) {
   .register-wrapper {
     flex-direction: column;
@@ -1661,6 +1685,7 @@ body {
   width: 100%;
   display: block;
   flex: 1;
+  margin-bottom: 40px;
 
   img {
     width: 100%;
@@ -1680,6 +1705,7 @@ body {
     letter-spacing: -1%;
     color: #fff;
     transition: .2s color;
+
     &:hover {
       color: #dddddd;
     }
@@ -1695,6 +1721,7 @@ body {
   transition: .2s color;
   display: block;
   margin-top: 20px;
+
   &:hover {
     color: #dddddd;
   }
@@ -1738,7 +1765,6 @@ body {
     width: auto;
   }
   .footer-logo {
-    margin-bottom: 40px;
     max-width: 254px;
   }
   .footer-politics {

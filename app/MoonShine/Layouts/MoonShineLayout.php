@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Layouts;
 
+use App\Enums\RequestStatus;
+use App\Models\RequestModel;
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
@@ -35,6 +37,7 @@ use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\ResultResource;
 use App\MoonShine\Resources\GalleryImageResource;
 use App\MoonShine\Resources\ReviewResource;
+use App\MoonShine\Resources\RequestResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -52,6 +55,8 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make('До / после', ResultResource::class),
             MenuItem::make('Галерея', GalleryImageResource::class),
             MenuItem::make('Отзывы', ReviewResource::class),
+            MenuItem::make('Заявки', RequestResource::class)
+            ->badge(fn() => RequestModel::query()->where('status', RequestStatus::NEW)->count()),
             ...parent::menu(),
         ];
     }

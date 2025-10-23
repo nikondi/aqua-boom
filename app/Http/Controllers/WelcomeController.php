@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\RequestStatus;
 use App\Models\GalleryImage;
+use App\Models\RequestModel;
 use App\Models\Result;
 use App\Models\Review;
 use App\Models\Service;
+use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
@@ -33,5 +36,21 @@ class WelcomeController extends Controller
             'gallery' => $gallery,
             'reviews' => $reviews,
         ]);
+    }
+
+    public function form_send(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required|min:18|max:18',
+        ]);
+
+        RequestModel::create([
+            'name' => $request->get('name'),
+            'phone' => $request->get('phone'),
+            'status' => RequestStatus::NEW
+        ]);
+
+        return response()->json(['success' => true]);
     }
 }
