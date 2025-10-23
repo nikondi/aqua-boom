@@ -9,12 +9,14 @@ import Swiper from "swiper";
 import {Navigation} from "swiper/modules";
 import {CountUp} from "countup.js";
 import {Fancybox} from "@fancyapps/ui";
+import IMask from 'imask';
 
 document.addEventListener('DOMContentLoaded', function () {
   const {closeMenu} = initMenu()
 
   initHeaderScroll();
   initFirstParallax();
+  initRegisterParallax();
 
   AOS.init({
     duration: 300
@@ -117,7 +119,17 @@ function initFirstParallax() {
       scalarY: 3,
       scalarX: 3
     });
-  })
+  });
+}
+
+function initRegisterParallax() {
+  document.querySelectorAll('.register-image-parallax').forEach(function (scene) {
+    new Parallax(scene as HTMLElement, {
+      relativeInput: true,
+      scalarY: 3,
+      scalarX: 3
+    });
+  });
 }
 
 function initServicesSlider() {

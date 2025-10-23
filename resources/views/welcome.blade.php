@@ -347,6 +347,75 @@
     </div>
 </section>
 
+<section id="register" class="register-section">
+    <div class="container">
+        <div class="register-wrapper">
+            <div class="register-image" id="register-parallax">
+                <div class="register-image__main">
+                    <div class="register-image-parallax">
+                        <img src="/assets/img/register-image.png" alt="" data-depth="0.2">
+                    </div>
+                </div>
+                <div class="register-image__big">
+                    <div class="register-image-parallax">
+                        <svg width="150" height="173" viewBox="0 0 150 173" data-depth="0.05">
+                            <path d="M75 0L150 43.25V129.75L75 173L0 129.75V43.25L75 0Z"
+                                  fill="url(#paint0_linear_22_2134)"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_22_2134" x1="1.98567e-06" y1="67.1983" x2="125.062"
+                                                y2="149.314" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#8BEFD3"/>
+                                    <stop offset="1" stop-color="#377F7E"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="register-image__small">
+                    <div class="register-image-parallax">
+                        <svg width="54" height="62" viewBox="0 0 110 127" data-depth="0.1">
+                            <path d="M55 0L110 31.75V95.25L55 127L0 95.25V31.75L55 0Z"
+                                  fill="url(#paint0_linear_21_1425)"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_21_1425" x1="1.45616e-06" y1="49.3306" x2="91.7703"
+                                                y2="109.524"
+                                                gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#8BEFD3"/>
+                                    <stop offset="1" stop-color="#377F7E"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <form action="" class="register-form">
+                <h3 class="section-heading">Качественная<span></span>мойка<br /> по доступной цене</h3>
+                <label class="form-input">
+                    <span>Имя</span>
+                    <input type="text" name="name">
+                </label>
+                <label class="form-input">
+                    <span>Номер</span>
+                    <input type="tel" name="phone">
+                </label>
+
+                <button class="btn">Записаться на мойку</button>
+
+                <label class="form-checkbox">
+                    <input type="checkbox">
+                    <span class="form-checkbox__check">
+                        <svg width="1em" height="1em" x="0" y="0" viewBox="0 0 511.985 511.985"><path d="M500.088 83.681c-15.841-15.862-41.564-15.852-57.426 0L184.205 342.148 69.332 227.276c-15.862-15.862-41.574-15.862-57.436 0-15.862 15.862-15.862 41.574 0 57.436l143.585 143.585c7.926 7.926 18.319 11.899 28.713 11.899 10.394 0 20.797-3.963 28.723-11.899l287.171-287.181c15.862-15.851 15.862-41.574 0-57.435z" fill="currentColor"></path></svg>
+                    </span>
+                    <div class="form-checkbox__text">Согласен на <a href="#">обработку персональных данных</a> и
+                        <a href="#">политику конфиденциальности</a>
+                    </div>
+                </label>
+            </form>
+        </div>
+    </div>
+</section>
+
 @vite(['resources/js/app.ts'])
 </body>
 </html>

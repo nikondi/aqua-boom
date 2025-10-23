@@ -474,11 +474,13 @@ body {
     }
   }
 }
+
 @media (max-width: 767px) {
   .heading {
     &__buttons {
       column-gap: 5px;
     }
+
     &__button {
       svg {
         width: 22px;
@@ -493,7 +495,7 @@ body {
   font-size: 50px;
   letter-spacing: -1%;
   text-transform: uppercase;
-  line-height: 36px;
+  line-height: 100%;
 }
 
 @media (max-width: 767px) {
@@ -1389,13 +1391,16 @@ body {
 
   .review-card {
     padding: 0;
+
     &:before,
     &:after {
       display: none;
     }
+
     &__name {
       font-size: 20px;
     }
+
     &__text {
       font-size: 16px;
     }
@@ -1405,8 +1410,223 @@ body {
     &__desktop {
       display: none;
     }
+
     &__mobile {
       display: block;
     }
+  }
+}
+
+.register-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+.register-image {
+  width: 50%;
+  max-width: 587px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+
+  &__main {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__big {
+    position: absolute;
+    bottom: clamp(42px, 6.9vw, 83px);
+    left: 0;
+    transform: translateX(-50%);
+    width: clamp(82px, 12.5vw, 150px);
+    max-width: 164px; /* не больше исходного размера */
+  }
+
+  &__small {
+    position: absolute;
+    width: clamp(51px, 4.5vw, 54px);
+    max-width: 110px;
+    top: clamp(0px, 6.9vw, 84px);
+    right: 67px;
+  }
+}
+
+
+.register-wrapper {
+  display: flex;
+  column-gap: 25px;
+  .section-heading {
+    span:before {
+      content: '&nbsp;'
+    }
+  }
+}
+
+.register-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .section-heading {
+    margin-bottom: 40px;
+  }
+  .btn {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+
+  input {
+    display: block;
+    height: 75px;
+    border: 2px solid #3D3D3D;
+    width: 100%;
+    padding: 10px 15px;
+  }
+
+  span {
+    color: #3D3D3D;
+    position: absolute;
+    display: block;
+    padding: 4px 8px;
+    background-color: #000000;
+    left: 16px;
+    top: -11px;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -1%;
+  }
+}
+
+.form-checkbox {
+  display: flex;
+  position: relative;
+  column-gap: 10px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__text {
+    max-width: 437px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -1%;
+
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      transition: .2s color;
+      &:hover {
+        color: #dddddd;
+      }
+    }
+  }
+
+  &__check {
+    display: block;
+    position: relative;
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    color: #FFFFFF;
+    font-size: 16px;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 3;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: {
+        property: visibility, opacity;
+        duration: .2s;
+      };
+    }
+
+    &:before {
+      content: '';
+      background: linear-gradient(127.14deg, #8BEFD3 16.74%, #377F7E 84.64%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &:after {
+      content: '';
+      background: #000;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+    }
+  }
+  input:checked + &__check {
+    svg {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .register-wrapper {
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 30px;
+    .section-heading {
+      margin-bottom: 30px;
+      span:before {
+          content: ' ';
+      }
+    }
+  }
+  .register-form {
+    .form-input {
+      margin-bottom: 30px;
+      span {
+        font-size: 16px;
+      }
+    }
+    .form-checkbox__text {
+      font-size: 16px;
+    }
+    .btn {
+      margin-top: -5px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .register-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+@media (max-width: 575px) {
+  .register-image {
+    width: 100%;
+    max-width: 309px;
   }
 }
