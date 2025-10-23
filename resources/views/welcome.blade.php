@@ -390,7 +390,7 @@
                 </div>
             </div>
             <form action="" class="register-form">
-                <h3 class="section-heading">Качественная<span></span>мойка<br /> по доступной цене</h3>
+                <h3 class="section-heading"><span>Качественная мойка</span><br /> по доступной цене</h3>
                 <label class="form-input">
                     <span>Имя</span>
                     <input type="text" name="name">
@@ -415,6 +415,44 @@
         </div>
     </div>
 </section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-wrapper">
+            <div class="footer-info">
+                <a href="#top" class="footer-logo"><img src="/assets/img/logo.svg" alt=""></a>
+                <ul class="footer-menu">
+                    <li><a href="#service">Услуги</a></li>
+                    <li><a href="#results">До/после</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#gallery">Галерея работ</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                </ul>
+                <div class="header-socials">
+                    <a href="#">
+                        <svg width="1em" height="1em">
+                            <use xlink:href="/assets/img/socials.svg#tg"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="1em" height="1em">
+                            <use xlink:href="/assets/img/socials.svg#wa"/>
+                        </svg>
+                    </a>
+                    <span>
+                </span>
+                </div>
+                <a href="#" class="footer-politics">Политика конфиденциальности</a>
+                <div class="copyright">©AQUABOOM, {{ date('Y') }}</div>
+            </div>
+            <div class="footer-map">
+                <div id="map" style="width: 100%"></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 
 @vite(['resources/js/app.ts'])
 </body>

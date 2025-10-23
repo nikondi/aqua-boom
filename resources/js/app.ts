@@ -31,6 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
   Fancybox.bind('[data-fancybox]');
 
   initReviewsSlider();
+
+  document.querySelectorAll<HTMLInputElement>('input[type=tel]').forEach(function (el) {
+    IMask(el, {
+      mask: '+{7} (000) 000-00-00'
+    })
+  });
+
+  initMap();
 })
 
 function initMenu() {
@@ -173,7 +181,7 @@ function initScrollTo(closeMenu: () => void) {
 
       e.preventDefault();
       closeMenu();
-      const top = elem.getBoundingClientRect().top;
+      const top = elem.getBoundingClientRect().top + window.scrollY;
       window.scroll({top: top - 73, behavior: 'smooth'})
     })
   });
@@ -356,7 +364,6 @@ function initResults() {
   });
 }
 
-
 function initCountUp() {
   const counts = document.querySelectorAll<HTMLElement>('.countup');
   counts.forEach(function (item) {
@@ -386,6 +393,7 @@ function initCountUp() {
   });
 }
 
+
 function initReviewsSlider() {
   const wrapper = document.getElementById('reviews');
   const slider = wrapper.querySelector<HTMLElement>('.reviews-slider');
@@ -406,4 +414,13 @@ function initReviewsSlider() {
       }
     }
   })
+}
+
+function initMap() {
+  ymaps.ready(function () {
+    const myMap = new ymaps.Map("map", {
+      center: [55.76, 37.64],
+      zoom: 10
+    });
+  });
 }
