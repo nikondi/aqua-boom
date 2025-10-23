@@ -418,7 +418,7 @@ function initReviewsSlider() {
 
 function initMap() {
   ymaps.ready(function () {
-    const myMap = new ymaps.Map("map", {
+    new ymaps.Map("map", {
       center: [55.76, 37.64],
       zoom: 10
     });
