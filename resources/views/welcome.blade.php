@@ -309,8 +309,8 @@
         <div class="reviews-heading">
             <h3 class="section-heading">Отзывы</h3>
             <div class="reviews-heading__desktop">
-                <a href="#">
-                    <img src="/assets/img/2gis.png" alt="">
+                <a href="https://yandex.ru/maps/org/aquaboom/170646950441/reviews" target="_blank">
+                    <img src="/assets/img/yamaps.svg" alt="">
                     <span>Перейти к отзывам</span>
                 </a>
             </div>

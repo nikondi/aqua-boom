@@ -47,6 +47,8 @@ class ServiceResource extends ModelResource
      */
     protected function formFields(): iterable
     {
+        $item = $this->getItem();
+
         return [
             Box::make([
                 ID::make(),
@@ -60,7 +62,7 @@ class ServiceResource extends ModelResource
                 Image::make('Фотография', 'image')
                     ->dir('service')
                     ->allowedExtensions(['png', 'jpeg', 'webp', 'jpg'])
-                    ->required(),
+                    ->required(empty($item?->image)),
 
                 Textarea::make('Описание', 'description')
                     ->required(),
