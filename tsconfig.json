@@ -11,12 +11,16 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "strictNullChecks": false,
-    "types": [
-      "vite/client"
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@yandex/ymaps3-types"
     ],
     "paths": {
       "@/*": [
         "./resources/js/*"
+      ],
+      "ymaps3": [
+        "./node_modules/@yandex/ymaps3-types"
       ]
     }
   },

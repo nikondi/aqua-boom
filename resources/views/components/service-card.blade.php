@@ -12,7 +12,7 @@
         <img src="{{ $service->getImageUrl() }}" alt="">
     </div>
     <div class="service-card__price">
-        {{ number_format($service->price, 0, '.', ' ') }} ₽
+        От {{ number_format($service->price, 0, '.', ' ') }} ₽
     </div>
     <div class="service-card__title">
         {!! $service->name !!}

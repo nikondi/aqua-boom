@@ -22,9 +22,9 @@ class WelcomeController extends Controller
             ->get();
 
         $dots = [
-            ['text' => 'ул. Доватора, 14В', 'link' => 'https://google.com', 'position' => 'top: 10%;right: 61%'],
-            ['text' => 'ул. Доватора, 14В', 'link' => 'https://google.com', 'position' => 'top: 30%;left: 60%', 'right' => true],
-            ['text' => 'ул. Доватора, 14В', 'link' => 'https://google.com', 'position' => 'top: 68%;right: 52%'],
+            ['text' => 'ул. Доватора, 14В', 'link' => 'https://yandex.ru/maps/org/aquaboom/170646950441', 'position' => 'top: 10%;right: 61%'],
+            ['text' => 'ул. Космонавтов, с53Б', 'link' => 'https://yandex.ru/maps/org/aquaboom/208101023989', 'position' => 'top: 30%;left: 60%', 'right' => true],
+            ['text' => 'Базарная ул., с3/5, микрорайон Сырский Рудник', 'link' => 'https://yandex.ru/maps/org/aquaboom/231195982300', 'position' => 'top: 68%;right: 52%'],
         ];
 
         $reviews = Review::all();

@@ -1,5 +1,6 @@
 @forward "reset";
 
+
 body {
   background-color: #000000;
   font-family: 'Inter', sans-serif;
@@ -994,13 +995,18 @@ body {
 .map-dot {
   display: flex;
   width: 342px;
-  flex-wrap: wrap;
   position: absolute;
   color: #fff;
+  padding-bottom: 11px;
+
+  > div {
+    flex: 1;
+  }
 
   &:before {
     content: '';
     display: block;
+    min-width: 24px;
     width: 24px;
     height: 24px;
     align-items: center;
@@ -1018,7 +1024,9 @@ body {
     height: 1px;
     background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
     width: 100%;
-    margin-top: 11px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 
   &--right {
@@ -1663,6 +1671,9 @@ body {
     width: 100%;
     max-width: 309px;
   }
+  .register-wrapper .section-heading span {
+    white-space: unset;
+  }
 }
 
 .footer {
@@ -1772,5 +1783,11 @@ body {
   }
   .footer-menu {
     align-items: center;
+  }
+}
+
+#map {
+  img, svg {
+    max-width: unset;
   }
 }

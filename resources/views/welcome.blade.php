@@ -17,7 +17,7 @@
     <meta name="apple-mobile-web-app-title" content="ESTET"/>
     <link rel="manifest" href="/assets/favicon/site.webmanifest"/>
 
-    @vite(['resources/css/app.scss'])
+    @vite(['resources/css/app.scss', 'resources/css/map.css'])
 </head>
 <body>
 
@@ -47,7 +47,7 @@
                         <use xlink:href="/assets/img/socials.svg#tg"/>
                     </svg>
                 </a>
-                <a href="#">
+                <a href="https://wa.me/89155558908">
                     <svg width="1em" height="1em">
                         <use xlink:href="/assets/img/socials.svg#wa"/>
                     </svg>
@@ -266,8 +266,8 @@
                         @foreach($dots as $dot)
                             <a href="{{ $dot['link'] }}"
                                class="map-dot{{ ($dot['right'] ?? false)?' map-dot--right':'' }}"
-                               style="{{ $dot['position'] }}">
-                                {!! $dot['text'] !!}
+                               style="{{ $dot['position'] }}" target="_blank" data-aos="fade-{{ ($dot['right'] ?? false)?'left':'right' }}">
+                                <div>{!! $dot['text'] !!}</div>
                             </a>
                         @endforeach
                     </div>
@@ -281,7 +281,7 @@
                 </div>
                 <div class="map-list">
                     @foreach($dots as $dot)
-                        <a href="{{ $dot['link'] }}">
+                        <a href="{{ $dot['link'] }}" target="_blank">
                             {{ $dot['text'] }}
                         </a>
                     @endforeach
@@ -294,8 +294,8 @@
         <div class="container">
             <h3 class="section-heading">Галерея работ</h3>
             <div class="gallery">
-                @foreach($gallery as $image)
-                    <a href="{{ $image->getUrl() }}" data-fancybox="gallery">
+                @foreach($gallery as $i => $image)
+                    <a href="{{ $image->getUrl() }}" data-fancybox="gallery" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                         <img src="{{ $image->getUrl() }}" alt="">
                     </a>
                 @endforeach
@@ -389,7 +389,7 @@
                     </div>
                 </div>
             </div>
-            <form action="" class="register-form">
+            <form action="" method="post" class="register-form">
                 <h3 class="section-heading"><span>Качественная мойка</span><br /> по доступной цене</h3>
                 <label class="form-input">
                     <input type="text" name="name" required>
@@ -459,7 +459,7 @@
     </div>
 </footer>
 
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script src="https://api-maps.yandex.ru/v3/?apikey=377df1c2-c009-45f3-8d7d-be0e29a8d255&lang=ru_RU"></script>
 
 @vite(['resources/js/app.ts'])
 </body>

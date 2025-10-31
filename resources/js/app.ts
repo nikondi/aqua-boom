@@ -1,7 +1,6 @@
 import './bootstrap';
 import 'swiper/css';
 import 'aos/dist/aos.css';
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import Parallax from "parallax-js";
 import AOS from "aos";
 import {lockBody, unlockBody} from "@/heplers";
@@ -11,6 +10,7 @@ import {CountUp} from "countup.js";
 import {Fancybox} from "@fancyapps/ui";
 import IMask from 'imask';
 import axios from "axios";
+import {LngLat} from "ymaps3";
 
 document.addEventListener('DOMContentLoaded', function () {
   const {closeMenu} = initMenu()
@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
   initRegisterParallax();
 
   AOS.init({
-    duration: 300
+    duration: 200,
+    offset: -400,
+    once: true
   });
 
   initServicesSlider();
@@ -220,8 +222,13 @@ function initResults() {
   const calcBounds = () => {
     bounds = [];
     cards.forEach(function (card) {
-      bounds.push(card.getBoundingClientRect());
-    })
+      const b = card.getBoundingClientRect();
+      bounds.push(b);
+
+      const second_image_img = card.querySelector<HTMLImageElement>('.result-card__image--second img');
+      if (second_image_img)
+        second_image_img.style.width = b.width + 'px';
+    });
   }
 
   const handleTranslate = (translate: number) => {
@@ -307,7 +314,6 @@ function initResults() {
   };
   swiper.on('sliderMove', onMove);
   swiper.on('setTranslate', onMove);
-
 
   cards.forEach(function (elem, i) {
     const trigger = elem.querySelector('.result-card__trigger') as HTMLElement;
@@ -417,14 +423,9 @@ function initReviewsSlider() {
   });
 }
 
-
-function initMap() {
-  ymaps.ready(function () {
-    new ymaps.Map("map", {
-      center: [55.76, 37.64],
-      zoom: 10
-    });
-  });
+type MapMarker = {
+  coords: LngLat,
+  title: string
 }
 
 let timeout: number = null;
@@ -448,7 +449,7 @@ function initRegisterForm() {
       phone: form.querySelector<HTMLInputElement>('input[name="phone"]').value,
     };
 
-    if(data.phone.replace(/[^0-9]/g, '').length != 11)
+    if (data.phone.replace(/[^0-9]/g, '').length != 11)
       return;
 
     clearTimeout(timeout);
@@ -467,4 +468,53 @@ function initRegisterForm() {
         timeout = setTimeout(hideNotifications, 6000)
       });
   });
+}
+
+
+const map_markers: MapMarker[] = [
+  {
+    coords: [39.558120, 52.600831],
+    title: 'ул. Доватора, 14В'
+  },
+  {
+    coords: [39.531051, 52.605876],
+    title: 'ул. Космонавтов, с53Б'
+  },
+  {
+    coords: [39.484092, 52.579882],
+    title: 'Базарная ул., с3/5, микрорайон Сырский Рудник',
+  },
+]
+
+async function initMap(): Promise<void> {
+  await ymaps3.ready;
+
+  const {YMapDefaultMarker} = await import('@yandex/ymaps3-default-ui-theme');
+
+  const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer} = ymaps3;
+
+  const map = new YMap(document.getElementById('map'), {
+      theme: 'dark',
+      location: {
+        center: [39.52887022078917, 52.592886702025645],
+        zoom: 13
+      },
+    },
+    [
+      new YMapDefaultSchemeLayer({}),
+      new YMapDefaultFeaturesLayer({})
+    ]
+  );
+
+  map_markers.forEach(function (marker) {
+    const mark = new YMapDefaultMarker({
+      coordinates: marker.coords,
+      iconName: "car_wash",
+      size: "small",
+      title: marker.title,
+      color: 'red',
+    });
+    map.addChild(mark);
+  });
+
 }
